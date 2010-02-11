@@ -4,3 +4,15 @@ h1. Testing en Ruby y Rails
 _Charla de formación interna para "*aspgems*":http://aspgems.com del día 10 de Febrero de 2010
 
 Los ejemplos vistos en la charla los dejo "*aquí*":http://gist.github.com/301419
+
+h2. Como ver la presentación
+
+Puedes acceder directamente la presentación en pdf "*aqui*":http://github.com/pacoguzman/ruby_texting
+
+O puedes verla en tu navegador utilizando "*showoff*":http://github.com/schacon/showoff
+
+* gem install showoff
+* git clone git://github.com/pacoguzman/ruby_testing.git
+* cd ruby_testing
+* showoff server
+* Y abrir en tu navegador "*http://localhost:9090*":http://localhost:9090
