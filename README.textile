@@ -7,7 +7,7 @@ Los ejemplos vistos en la charla los dejo "*aquí*":http://gist.github.com/30141
 
 h2. Como ver la presentación
 
-Puedes acceder directamente la presentación en pdf "*aqui*":http://github.com/pacoguzman/ruby_texting
+Puedes acceder directamente a la presentación en pdf "*aqui*":http://github.com/pacoguzman/ruby_testing
 
 O puedes verla en tu navegador utilizando "*showoff*":http://github.com/schacon/showoff
 
