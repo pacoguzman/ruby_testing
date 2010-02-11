@@ -1,0 +1,6 @@
+
+h1. Testing en Ruby y Rails
+
+_Charla de formación interna para "*aspgems*":http://aspgems.com del día 10 de Febrero de 2010
+
+Los ejemplos vistos en la charla los dejo "*aquí*":http://gist.github.com/301419
