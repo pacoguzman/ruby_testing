@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Presentation</title>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+    <link rel="stylesheet" href="file/custom.css" type="text/css"/>
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+    setupPreso(false, './');
+  });
+  </script>
+</head>
+
+<body>
+
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">&larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">z</td><td>toggle help (this)</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content center" ref="title/title">
+<h1>Testing en Ruby y Rails</h1>
+
+<h2>RSpec and Fixture Replacement</h2>
+
+<h3>por Paco Guzm&#xE1;n</h3>
+
+<h2>Haciendo testing r&#xE1;pido y fiable</h2>
+
+<h2>Cucumber / Webrat</h2>
+
+<h3>por Jorge &#xC1;lvarez</h3></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="rspec/slideA/1">
+<h1>The RSpec Pdf</h1>
+
+<p><img src="file:///home/pacoguzman/dev/github_pacoguzman/ruby_testing/rspec/the_rspec_book_cover.png" alt="The RSpec Book"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="rspec/slideA/2">
+<h1>&#xBF;Por qu&#xE9; RSpec?</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="rspec/slideA/3">
+<h1>&#xBF;Por qu&#xE9; RSpec?</h1>
+
+<h2>Es m&#xE1;s f&#xE1;cil de leer</h2></div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="rspec/slideA/4">
+<h1>ActiveSupport::TestCase vs RSpec v1.3.0</h1>
+
+<pre class="sh_ruby"><code>class AspgemsTest             # describe Aspgems
+
+def test("something")         # it "does something descriptive"
+
+assert_equal 4, array.length  # array.length.should == 4
+
+def setup                     # before(:each) {}
+
+def teardown                  # after(:each) {}</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content code tiny" ref="rspec/slideA/5">
+<h1>Matchers (RSpec v1.3.0)</h1>
+
+<h2>rapidito</h2>
+
+<pre class="sh_ruby"><code>@string.should == 'foo' # @string.should equal('foo'), @string.should eql('foo')
+
+@string.should_not ...
+
+@array.should_not be_empty # calls @array.empty?
+
+@string.should_not be_blank # calls @string.blank?
+
+@hash.should have_key(:foo)
+
+@string.should match(/\d+/) # @string.should =~ /\d+/
+
+@object.should be_an_instance_of(String)
+
+@stack.should have(0).elements
+
+lambda { @stack.pop }.should raise_error(StackUnderflowError)
+
+lambda { @stack.push }.should change(@stack.size).by(1)</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content center bullets incremental" ref="rspec/slideA/6">
+<h1>Rails checklist</h1>
+
+<ul>
+<li><strong>Models</strong></li>
+<li><strong>Controllers</strong></li>
+<li><strong>Helpers</strong></li>
+<li><strong>Views</strong></li>
+<li>E-mails, Rake tasks, JavaScript, ...</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental small" ref="rspec/slideA/7">
+<h2>Setting the environment</h2>
+
+<pre><code><code class="command">$ gem instal rspec rspec-rails</code><code class="result">
+Successfully installed rspec-1.3.0
+Successfully installed rspec-rails-1.3.2
+2 gems installed
+</code><code class="command">$ script/generate rspec</code><code class="result">
+Configuring rspec and rspec-rails gems in config/environments/test.rb ...
+
+  exists  lib/tasks
+  create  lib/tasks/rspec.rake
+  create  script/autospec
+  create  script/spec
+  create  spec
+  create  spec/rcov.opts
+  create  spec/spec.opts
+  create  spec/spec_helper.rb
+</code><code class="command">$ touch spec/factories.rb</code><code class="result">
+</code><code class="command">$ gem install factory_girl</code><code class="result">
+Successfully installed factory_girl-1.2.3
+1 gem installed
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rspec/slideA/8">
+<h2>spec/spec_helper.rb</h2>
+
+<pre class="sh_ruby"><code>...
+require 'factory_girl'
+
+Spec::Runner.configure do |config|
+  ...
+end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="factory_girl/slideA/1">
+<h1>&#xBF;Por qu&#xE9; no utilizo fixtures?</h1>
+
+<ul>
+<li>Elementos globales</li>
+<li>Las fixtures est&#xE1;n dispersas</li>
+<li>Est&#xE1;n alejadas de los test</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection incremental" ref="factory_girl/slideA/2">
+<h1>factory_girl</h1>
+
+<h3>gem install factory_girl --source http://gemcutter.org</h3></div>
+</div><div class="slide" data-transition="none"><div class="content ruby small" ref="factory_girl/slideA/3">
+<h1>Creando datos de test</h1>
+
+<pre class="sh_ruby"><code>Factory.sequence(:login) { |n| "login#{n}" } # Sequence
+
+Factory.define :user do |u|
+  u.login { Factory.next(:login) } # Using sequence
+  u.password {|a| a.login + "pass"} # Dependent attributes
+  u.password_confirmation {|a| a.login + "pass"}
+  u.email {|a| "#{a.login}@example.com".downcase }
+end
+
+&gt;&gt;Factory(:user)
++----+--------+--------------------+---------+-------+
+| id | login  | email              | state   | admin |
++----+--------+--------------------+---------+-------+
+| 1  | login1 | login1@example.com | passive | false |
++----+--------+--------------------+---------+-------+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content ruby small" ref="factory_girl/slideA/4">
+<h1>Herencia</h1>
+
+<pre class="sh_ruby"><code>Factory.define :admin, :parent =&gt; :user do |a|
+  a.admin true
+end
+
+&gt;&gt;Factory(:admin)
++----+--------+--------------------+---------+-------+
+| id | login  | email              | state   | admin |
++----+--------+--------------------+---------+-------+
+| 3  | login3 | login3@example.com | passive | true  |
++----+--------+--------------------+---------+-------+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content ruby tiny" ref="factory_girl/slideA/5">
+<h1>Callbacks</h1>
+
+<pre class="sh_ruby"><code>Factory.define :registered, :parent =&gt; :user do |m|
+  m.after_create { |m| m.register! }
+end
+
+&gt;&gt;Factory(:registered)
++----+--------+--------------------+------------------------------------------+---------+-------+
+| id | login  | email              | activation_code                          | state   | admin |
++----+--------+--------------------+------------------------------------------+---------+-------+
+| 7  | login5 | login5@example.com | a6ea204bac5a3122cfa496656196b22e4c24b9b8 | pending | false |
++----+--------+--------------------+------------------------------------------+---------+-------+
+
+Factory.define :member, :parent =&gt; :registered do |m|
+  m.after_create { |m| m.activate! }
+end
+
+&gt;&gt;Factory(:member)
++----+--------+-------------------------+--------+-------+
+| id | login  | activated_at            | state  | admin |
++----+--------+-------------------------+--------+-------+
+| 9  | login7 | 2010-01-31 17:00:49 UTC | active | false |
++----+--------+-------------------------+--------+-------+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content ruby smaller" ref="factory_girl/slideA/6">
+<h1>Miss Machinist or ObjectDaddy?</h1>
+
+<pre class="sh_ruby"><code>require 'factory_girl/syntax/generate'
+
+User.generate(:name =&gt; 'Johnny') # Factory(:user, :name =&gt; 'Johnny')
+
+require 'factory_girl/syntax/make'
+
+User.make(:name =&gt; 'Johnny') # Factory(:user, :name =&gt; 'Johnny')</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content ruby tiny" ref="factory_girl/slideA/7">
+<h1>Varios</h1>
+
+<pre class="sh_ruby"><code>Factory.define :user do |u|
+  u.activation_code { User.make_activation_code } # Lazy attributes
+  u.email {|a| "#{a.login}@example.com".downcase } # Dependant attributes 
+end
+
+Factory.define :group do |p|
+  # ...
+  p.author {|a| a.association(:user, :login =&gt; 'Writely') } # Associations
+  p.association :author, :factory =&gt; :member # o as&#xED;, si necesitamos un member
+end
+
+&gt;&gt;Factory(:group)
++----+-------+---------+---------+
+| id | name  | state   | user_id |
++----+-------+---------+---------+
+| 2  | name2 | pending | 11      |
++----+-------+---------+---------+
+
+&gt;&gt;User.find(11)
++----+---------+---------------------+-------------------------+--------+
+| id | login   | email               | activated_at            | state  |
++----+---------+---------------------+-------------------------+--------+
+| 11 | login11 | login11@example.com | 2010-01-31 17:15:37 UTC | active |
++----+---------+---------------------+-------------------------+--------+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="final/slideA/1">
+<h1>Vamos a verlo con ejemplos</h1></div>
+</div><div class="slide" data-transition="none"><div class="content center smaller" ref="final/slideA/2">
+<p><img src="file:///home/pacoguzman/dev/github_pacoguzman/ruby_testing/final/wakecup.jpg" alt="Wake Cup"/></p>
+
+<h3>http://mabu.dk/media2/152630/wakecup.jpg</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="final/slideA/3">
+<h1>spork + autospec</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandLine incremental smaller" ref="final/slideA/4">
+<pre><code>$ gem install ZenTest autotest-rails
+Successfully installed ZenTest-4.2.1
+Successfully installed autotest-rails-4.1.0
+2 gems installed
+
+$ gem install spork
+Successfully installed spork-0.7.5
+1 gem installed
+
+cd /path/to/project/root
+spork --bootstrap
+
+Add --drb to spec/spec.opts
+
+spork rspec # in one window
+
+autospec # in other window
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="final/slideA/5">
+<h2>Complementos &#xFA;tiles de RSpec</h2>
+
+<ul>
+<li>shoulda</li>
+<li>email-spec</li>
+<li>no-peeping-toms</li>
+<li>parallel-specs</li>
+<li>rspec-on-rails-matchers</li>
+<li>unemcumbered</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center smaller" ref="final/slideA/6">
+<p><img src="file:///home/pacoguzman/dev/github_pacoguzman/ruby_testing/final/jorgegorka.jpg" alt="Jorge &#xC1;lvarez"/></p>
+
+<h3>http://www.flickr.com/photos/jorgegorka/4309871380/</h3></div>
+</div>
+</div>
+
+</body>
+</html>
